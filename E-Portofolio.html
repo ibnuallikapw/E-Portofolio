@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="id" class="h-full" style="scroll-behavior:smooth;">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-Portfolio PPG Informatika</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Source+Serif+4:wght@400;600&amp;display=swap" rel="stylesheet">
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      fontFamily: {
+        outfit: ['Outfit', 'sans-serif'],
+        serif: ['Source Serif 4', 'Georgia', 'serif']
+      }
+    }
+  }
+}
+</script>
+  <style>
+html, body { margin:0; padding:0; height:100%; }
+body { font-family: 'Outfit', sans-serif; }
+
+.nav-blur { backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }
+.card-hover { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+.card-hover:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(0,0,0,0.08); }
+.fade-up { opacity:0; transform:translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.fade-up.visible { opacity:1; transform:translateY(0); }
+.placeholder-img {
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 50%, #ddd6fe 100%);
+  display: flex; align-items: center; justify-content: center;
+}
+.section-divider {
+  width: 48px; height: 3px; border-radius: 2px;
+}
+.mobile-menu { transform: translateX(100%); transition: transform 0.3s ease; }
+.mobile-menu.open { transform: translateX(0); }
+.hero-blob {
+  position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.3; pointer-events: none;
+}
+</style>
+  <style>body { box-sizing: border-box; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+ </head>
+ <body class="h-full overflow-auto" style="background-color:#fafbff;"><!-- NAV -->
+  <nav class="fixed top-0 left-0 w-full z-50 nav-blur" style="background:rgba(250,251,255,0.85); border-bottom:1px solid rgba(99,102,241,0.08);">
+   <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14"><a href="#home" class="font-semibold text-lg tracking-tight" style="color:#4338ca;"> <span style="color:#6366f1;">⬡</span> E-Portfolio </a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:#475569;" id="desktopNav"><a href="#home" class="hover:text-indigo-600 transition">Home</a> <a href="#about" class="hover:text-indigo-600 transition">About</a> <a href="#modul" class="hover:text-indigo-600 transition">Modul Ajar</a> <a href="#media" class="hover:text-indigo-600 transition">Media</a> <a href="#video" class="hover:text-indigo-600 transition">Video</a> <a href="#hasil" class="hover:text-indigo-600 transition">Hasil Kerja</a> <a href="#refleksi" class="hover:text-indigo-600 transition">Refleksi</a> <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+    </div><button id="menuBtn" class="md:hidden p-2 rounded-lg" style="color:#4338ca;" aria-label="Menu"> <i data-lucide="menu" style="width:22px;height:22px;"></i> </button>
+   </div>
+  </nav><!-- MOBILE MENU -->
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 z-[60] h-full w-64 shadow-2xl p-6 flex flex-col gap-4" style="background:#fafbff;"><button id="closeMenu" class="self-end p-2" aria-label="Close"><i data-lucide="x" style="width:22px;height:22px;color:#4338ca;"></i></button> <a href="#home" class="mob-link text-base font-medium py-2" style="color:#334155;">Home</a> <a href="#about" class="mob-link text-base font-medium py-2" style="color:#334155;">About</a> <a href="#modul" class="mob-link text-base font-medium py-2" style="color:#334155;">Modul Ajar</a> <a href="#media" class="mob-link text-base font-medium py-2" style="color:#334155;">Media</a> <a href="#video" class="mob-link text-base font-medium py-2" style="color:#334155;">Video</a> <a href="#hasil" class="mob-link text-base font-medium py-2" style="color:#334155;">Hasil Kerja</a> <a href="#refleksi" class="mob-link text-base font-medium py-2" style="color:#334155;">Refleksi</a> <a href="#contact" class="mob-link text-base font-medium py-2" style="color:#334155;">Contact</a>
+  </div>
+  <main class="w-full"><!-- HOME -->
+   <section id="home" class="relative min-h-[90%] flex items-center overflow-hidden pt-14">
+    <div class="hero-blob" style="width:400px;height:400px;background:#818cf8;top:-100px;left:-100px;"></div>
+    <div class="hero-blob" style="width:300px;height:300px;background:#c4b5fd;bottom:-50px;right:-50px;"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 flex flex-col md:flex-row items-center gap-10 md:gap-16 relative z-10 w-full">
+     <div class="flex-1 text-center md:text-left">
+      <p class="text-sm font-medium tracking-widest uppercase mb-3" style="color:#6366f1;">E-Portfolio PPG-PPL Informatika</p>
+      <h1 id="heroName" class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-4" style="color:#1e1b4b;">E-portofolio Ibnu Allika</h1>
+      <p id="heroSubtitle" class="text-lg sm:text-xl mb-8 font-light" style="color:#64748b;">PPG Prajabatan Gelombang 1 2026 — Informatika</p>
+      <div class="flex gap-3 justify-center md:justify-start"><a href="#about" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold text-white transition hover:opacity-90" style="background:#4338ca;"> Tentang Saya <i data-lucide="arrow-down-right" style="width:16px;height:16px;"></i> </a> <a href="#contact" class="inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-semibold border transition hover:bg-indigo-50" style="color:#4338ca;border-color:#c7d2fe;"> Kontak </a>
+      </div>
+     </div>
+     <div class="flex-shrink-0">
+      <div class="w-52 h-52 sm:w-64 sm:h-64 rounded-3xl placeholder-img shadow-lg rotate-3 hover:rotate-0 transition-transform duration-500">
+       <div class="text-center"><i  style="width:48px;height:48px;color:#6366f1;"></i>
+        <img src="C:\Users\lenov\Pictures\WhatsApp Image 2026-04-21 at 09.32.41.jpeg" class="text-xs mt-2 font-medium" style="color:#6366f1;"</img>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- ABOUT -->
+   <section id="about" class="py-20 fade-up">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Tentang</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">About Me</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="grid md:grid-cols-3 gap-8">
+      <div class="md:col-span-2 rounded-2xl p-8" style="background:#fff;border:1px solid #e0e7ff;">
+       <p id="aboutText" class="text-base leading-relaxed" style="color:#475569;">Saya adalah seorang guru/mahasiswa PPG Prajabatan bidang Informatika yang bersemangat dalam mengembangkan pembelajaran inovatif berbasis teknologi. Portfolio ini merupakan dokumentasi perjalanan saya selama mengikuti program PPG, mencakup modul ajar, media pembelajaran, dan berbagai karya yang telah dihasilkan. Silakan edit teks ini dengan deskripsi Anda sendiri.</p>
+      </div>
+      <div class="flex flex-col gap-4">
+       <div class="rounded-2xl p-6 text-center card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+        <div class="w-12 h-12 rounded-xl mx-auto flex items-center justify-center mb-3" style="background:#eef2ff;"><i data-lucide="graduation-cap" style="width:22px;height:22px;color:#4338ca;"></i>
+        </div>
+        <p class="text-sm font-semibold" style="color:#1e1b4b;">Pendidikan</p>
+        <p class="text-xs mt-1" style="color:#94a3b8;">S1 — Universitas Negeri Semarang <br> S2 — Universitas Negeri Yogyakarta</p>
+       </div>
+       <div class="rounded-2xl p-6 text-center card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+        <div class="w-12 h-12 rounded-xl mx-auto flex items-center justify-center mb-3" style="background:#eef2ff;"><i data-lucide="briefcase" style="width:22px;height:22px;color:#4338ca;"></i>
+        </div>
+        <p class="text-sm font-semibold" style="color:#1e1b4b;">Pengalaman</p>
+        <p class="text-xs mt-1" style="color:#94a3b8;">Tim Penelitian LPMP UNNES 2024 <br> SE Universitas Negeri Yogyakarta 2025 - Sekarang</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- MODUL AJAR -->
+   <section id="modul" class="py-20 fade-up" style="background:#f0f0ff;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Dokumen</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Modul Ajar</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="modulGrid"></div>
+    </div>
+   </section><!-- MEDIA PEMBELAJARAN -->
+   <section id="media" class="py-20 fade-up">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Interaktif</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Media Pembelajaran</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="mediaGrid"></div>
+    </div>
+   </section><!-- VIDEO PEMBELAJARAN -->
+   <section id="video" class="py-20 fade-up" style="background:#f0f0ff;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Dokumentasi</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Asistensi & Pembelajaran Terbimbing</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="grid sm:grid-cols-2 gap-6" id="videoGrid"></div>
+    </div>
+   </section><!-- HASIL KERJA SISWA -->
+   <section id="hasil" class="py-20 fade-up">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Pretest & Posttest</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Hasil Kerja Siswa</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="hasilGrid"></div>
+    </div>
+   </section><!-- REFLEKSI -->
+   <section id="refleksi" class="py-20 fade-up" style="background:#f0f0ff;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Refleksi</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Praktik Pembelajaran Terbimbing</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="max-w-3xl mx-auto flex flex-col gap-6" id="refleksiList"></div>
+    </div>
+   </section><!-- CONTACT -->
+   <section id="contact" class="py-20 fade-up">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Hubungi</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Contact</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="max-w-lg mx-auto grid gap-4">
+      <div class="flex items-center gap-4 rounded-2xl p-5 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+       <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eef2ff;"><i data-lucide="mail" style="width:20px;height:20px;color:#4338ca;"></i>
+       </div>
+       <div>
+        <p class="text-xs font-medium" style="color:#94a3b8;">Email</p>
+        <p id="contactEmail" class="text-sm font-semibold" style="color:#1e1b4b;">ibnuallikapw@gmail.com</p>
+       </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-2xl p-5 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+       <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eef2ff;"><i data-lucide="phone" style="width:20px;height:20px;color:#4338ca;"></i>
+       </div>
+       <div>
+        <p class="text-xs font-medium" style="color:#94a3b8;">Telepon</p>
+        <p id="contactPhone" class="text-sm font-semibold" style="color:#1e1b4b;">+62 812 1853 4459</p>
+       </div>
+      </div>
+      <div class="flex items-center gap-4 rounded-2xl p-5 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+       <div class="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#eef2ff;"><i data-lucide="map-pin" style="width:20px;height:20px;color:#4338ca;"></i>
+       </div>
+       <div>
+        <p class="text-xs font-medium" style="color:#94a3b8;">Lokasi</p>
+        <p id="contactLocation" class="text-sm font-semibold" style="color:#1e1b4b;">Kota, Yogyakarta</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section><!-- FOOTER -->
+   <footer class="py-8 text-center border-t" style="border-color:#e0e7ff;">
+    <p class="text-xs" style="color:#94a3b8;">© 2025 E-Portfolio PPG Informatika. Dibuat dengan ❤️</p>
+   </footer>
+  </main>
+  <script>
+// Card data
+const modulData = [
+  { title: "Modul 1: Perkakas Teknologi Digital", desc: "Macam Macam Alat Digital", icon: "code-2", file: "C:/Users/lenov/Documents/E-Portofolio/Modul%20Ajar%20Perkakas%20Teknologi%20Digital.pdf" },
+  { title: "Modul 2: Pengelolaan Kata", desc: "Pengelolaan dan penggunaan Google Document", icon: "database", file: "C:/Users/lenov/Documents/E-Portofolio/Modul%20Ajar%20Google%20Documents.pdf" },
+  { title: "Modul 3: Pengelolaan Data", desc: "Utilisasi dari penggunaan Spreadsheet", icon: "wifi", file: "C:/Users/lenov/Documents/E-Portofolio/Modul%20Ajar_Mengolah%20Data.pdf" },
+];
+const mediaData = [
+  { title: "Materi Singkat", desc: "Presentasi berbasis gamifikasi", icon: "presentation", file: "https://perkakasteknologidigital.my.canva.site/" },
+  { title: "Materi Presentasi", desc: "Visualisasi materi ajar", icon: "image", file: "https://canva.link/21l2yz85i6o99ll" },
+  { title: "Kuis Singkat", desc: "Asesmen formatif digital", icon: "help-circle", file: "https://perkakasteknologidigital.my.canva.site/materi" },
+];
+const videoData = [
+  { title: "Video Praktik Mengajar 1", desc: "Demonstrasi pembelajaran di kelas", icon: "play-circle", file: "" },
+  { title: "Video Praktik Mengajar 2", desc: "Penerapan model PBL", icon: "play-circle", file: "" },
+];
+const hasilData = [
+  { title: "Hasil Pretest", desc: "Materi Perkakasa Teknologi Digital", icon: "smartphone", file: "C:/Users/lenov/Documents/E-Portofolio/Kesukaran%20Bulir%20Pretest%20(Perkakas%20Teknologi%20Digital).pdf" },
+  { title: "Hasil Posttest", desc: "Materi Perkakasa Teknologi Digital", icon: "folder-open", file: "C:/Users/lenov/Documents/E-Portofolio/Kesukaran%20Bulir%20Posttest%20(Perkakas%20Teknologi%20Digital).pdf" },
+];
+const refleksiData = [
+  { title: "Siklus Terbimbing 1", desc: "Adaptasi dan pengenalan lingkungan belajar PPG.", file: "C:/Users/lenov/Documents/E-Portofolio/Siklus%201.pdf"},
+  { title: "Siklus Terbimbing 2", desc: "Pengembangan modul ajar dan praktik mengajar terbimbing.", file: "C:/Users/lenov/Documents/E-Portofolio/Siklus%202.pdf" },
+  { title: "Siklus Terbimbing 3", desc: "Evaluasi keseluruhan perjalanan PPG dan rencana ke depan.", file: "C:/Users/lenov/Documents/E-Portofolio/Siklus%203.pdf" },
+];
+
+function makeCard(item, type) {
+  const linkText = type === 'video' ? 'Tonton Video' : type === 'modul' ? 'Lihat Dokumen' : 'Lihat Detail';
+  const linkIcon = type === 'video' ? 'play' : 'external-link';
+  return `
+    <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+      <div class="w-11 h-11 rounded-xl flex items-center justify-center mb-4" style="background:#eef2ff;">
+        <i data-lucide="${item.icon}" style="width:20px;height:20px;color:#4338ca;"></i>
+      </div>
+      <h3 class="text-base font-semibold mb-1" style="color:#1e1b4b;">${item.title}</h3>
+      <p class="text-sm mb-4" style="color:#94a3b8;">${item.desc}</p>
+      <a href="${item.file}" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold transition hover:gap-2" style="color:#6366f1;">
+        ${linkText} <i data-lucide="${linkIcon}" style="width:14px;height:14px;"></i>
+      </a>
+    </div>`;
+}
+
+document.getElementById('modulGrid').innerHTML = modulData.map(i => makeCard(i,'modul')).join('');
+document.getElementById('mediaGrid').innerHTML = mediaData.map(i => makeCard(i,'media')).join('');
+document.getElementById('videoGrid').innerHTML = videoData.map(i => makeCard(i,'video')).join('');
+document.getElementById('hasilGrid').innerHTML = hasilData.map(i => makeCard(i,'hasil')).join('');
+document.getElementById('refleksiList').innerHTML = refleksiData.map(r => `
+  <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+    <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
+    <p class="text-sm" style="color:#475569;">${r.desc}</p>
+    <a href="#" onclick="event.preventDefault()" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
+      Baca Selengkapnya <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+    </a>
+  </div>`).join('');
+
+// Mobile menu
+const menuBtn = document.getElementById('menuBtn');
+const closeMenuBtn = document.getElementById('closeMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+document.querySelectorAll('.mob-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// Init icons
+lucide.createIcons();
+
+// Element SDK
+const defaultConfig = {
+  hero_name: "Nama Lengkap Anda",
+  hero_subtitle: "Mahasiswa PPG Prajabatan — Informatika",
+  about_text: "Saya adalah seorang guru/mahasiswa PPG Prajabatan bidang Informatika yang bersemangat dalam mengembangkan pembelajaran inovatif berbasis teknologi. Portfolio ini merupakan dokumentasi perjalanan saya selama mengikuti program PPG, mencakup modul ajar, media pembelajaran, dan berbagai karya yang telah dihasilkan. Silakan edit teks ini dengan deskripsi Anda sendiri.",
+  contact_email: "ibnuallikapw@gmail.com",
+  contact_phone: "+62 81218534459",
+  contact_location: "Kota, Yogyakarta",
+  background_color: "#fafbff",
+  surface_color: "#ffffff",
+  text_color: "#1e1b4b",
+  primary_action_color: "#4338ca",
+  secondary_action_color: "#6366f1",
+  font_family: "Outfit",
+  font_size: 16
+};
+
+function applyConfig(config) {
+  const c = { ...defaultConfig, ...config };
+  document.getElementById('heroName').textContent = c.hero_name;
+  document.getElementById('heroSubtitle').textContent = c.hero_subtitle;
+  document.getElementById('aboutText').textContent = c.about_text;
+  document.getElementById('contactEmail').textContent = c.contact_email;
+  document.getElementById('contactPhone').textContent = c.contact_phone;
+  document.getElementById('contactLocation').textContent = c.contact_location;
+
+  document.body.style.backgroundColor = c.background_color;
+  document.body.style.fontFamily = `${c.font_family}, Outfit, sans-serif`;
+
+  const baseSize = c.font_size;
+  document.getElementById('heroName').style.fontSize = '';
+  document.querySelectorAll('h2').forEach(h => h.style.color = c.text_color);
+  document.querySelectorAll('h3').forEach(h => h.style.color = c.text_color);
+  document.getElementById('heroName').style.color = c.text_color;
+
+  // Apply colors to cards and surfaces
+  document.querySelectorAll('.card-hover, [style*="background:#fff"]').forEach(el => {
+    if (el.style.background === 'rgb(255, 255, 255)' || el.style.backgroundColor === 'rgb(255, 255, 255)') {
+      el.style.background = c.surface_color;
+    }
+  });
+
+  document.querySelectorAll('a[style*="background:#4338ca"], a[style*="background: rgb(67, 56, 202)"]').forEach(el => {
+    el.style.background = c.primary_action_color;
+  });
+
+  document.querySelectorAll('a[style*="color:#6366f1"], a[style*="color: rgb(99, 102, 241)"]').forEach(el => {
+    if (!el.closest('nav')) el.style.color = c.secondary_action_color;
+  });
+}
+
+if (window.elementSdk) {
+  window.elementSdk.init({
+    defaultConfig,
+    onConfigChange: async (config) => { applyConfig(config); },
+    mapToCapabilities: (config) => {
+      const c = { ...defaultConfig, ...config };
+      const mkColor = (key) => ({
+        get: () => c[key] || defaultConfig[key],
+        set: (v) => { c[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+      });
+      return {
+        recolorables: [
+          mkColor('background_color'),
+          mkColor('surface_color'),
+          mkColor('text_color'),
+          mkColor('primary_action_color'),
+          mkColor('secondary_action_color')
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => c.font_family || defaultConfig.font_family,
+          set: (v) => { c.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+        },
+        fontSizeable: {
+          get: () => c.font_size || defaultConfig.font_size,
+          set: (v) => { c.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+        }
+      };
+    },
+    mapToEditPanelValues: (config) => {
+      const c = { ...defaultConfig, ...config };
+      return new Map([
+        ["hero_name", c.hero_name],
+        ["hero_subtitle", c.hero_subtitle],
+        ["about_text", c.about_text],
+        ["contact_email", c.contact_email],
+        ["contact_phone", c.contact_phone],
+        ["contact_location", c.contact_location]
+      ]);
+    }
+  });
+}
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9ef0d28814f8f02d',t:'MTc3NjY1MzIyNi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
