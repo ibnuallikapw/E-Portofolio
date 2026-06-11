@@ -142,12 +142,22 @@ body { font-family: 'Outfit', sans-serif; }
      </div>
      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6" id="hasilGrid"></div>
     </div>
-   </section><!-- REFLEKSI -->
+   </section><!-- INSTRUMEN -->
    <section id="refleksi" class="py-20 fade-up" style="background:#f0f0ff;">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
      <div class="text-center mb-12">
       <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Insturmen Penilaian Praktik Mengajar</p>
       <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Praktik Pembelajaran Terbimbing</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="max-w-3xl mx-auto flex flex-col gap-6" id="instrumenList"></div>
+    </div>
+   </section><!-- REFLEKSI -->
+   <section id="refleksi" class="py-20 fade-up" style="background:#f0f0ff;">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Insturmen Penilaian Praktik Mengajar</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Praktik Mengajar</h2>
       <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
      </div>
      <div class="max-w-3xl mx-auto flex flex-col gap-6" id="refleksiList"></div>
@@ -213,10 +223,13 @@ const hasilData = [
   { title: "Hasil Posttest", desc: "Materi Perkakasa Teknologi Digital", icon: "folder-open", file: "Pretest&Posttest/KesukaranBulirPosttest(PerkakasTeknologiDigital).pdf" },
   { title: "Hasil Nilai Guru Pamong", desc: "Instrumen Penilaian Penyusunan Perangkat Pembelajaran", icon: "folder-open", file: "SiklusTerbimbing/PenilaianModulAjar.pdf" },
 ];
-const refleksiData = [
+const instrumenData = [
   { title: "Siklus Terbimbing 1", desc: "Adaptasi dan pengenalan lingkungan belajar PPG.", file: "SiklusTerbimbing/Siklus1.pdf"},
   { title: "Siklus Terbimbing 2", desc: "Pengembangan modul ajar dan praktik mengajar terbimbing.", file: "SiklusTerbimbing/Siklus2.pdf" },
   { title: "Siklus Terbimbing 3", desc: "Evaluasi keseluruhan perjalanan PPG dan rencana ke depan.", file: "SiklusTerbimbing/Siklus3.pdf" },
+];
+const refleksiData = [
+  { title: "Refleksi Praktik Pengalaman Lapangan Terbimbing (PPLT)", desc: "SMK Negeri 2 Depok, Yogyakarta", file: "https://ibnuallikapw.github.io/E-Portofolio2/"},
 ];
 
 function makeCard(item, type) {
@@ -239,6 +252,14 @@ document.getElementById('modulGrid').innerHTML = modulData.map(i => makeCard(i,'
 document.getElementById('mediaGrid').innerHTML = mediaData.map(i => makeCard(i,'media')).join('');
 document.getElementById('videoGrid').innerHTML = videoData.map(i => makeCard(i,'video')).join('');
 document.getElementById('hasilGrid').innerHTML = hasilData.map(i => makeCard(i,'hasil')).join('');
+document.getElementById('instrumenList').innerHTML = instrumenData.map(r => `
+  <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
+    <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
+    <p class="text-sm" style="color:#475569;">${r.desc}</p>
+    <a href="#" onclick="event.preventDefault()" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
+      Baca Selengkapnya <i data-lucide="arrow-right" style="inline-size:14px;block-size:14px;"></i>
+    </a>
+  </div>`).join('');
 document.getElementById('refleksiList').innerHTML = refleksiData.map(r => `
   <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
     <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
