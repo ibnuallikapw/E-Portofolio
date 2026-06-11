@@ -48,11 +48,11 @@ body { font-family: 'Outfit', sans-serif; }
  <body class="h-full overflow-auto" style="background-color:#fafbff;"><!-- NAV -->
   <nav class="fixed top-0 left-0 w-full z-50 nav-blur" style="background:rgba(250,251,255,0.85); border-block-end:1px solid rgba(99,102,241,0.08);">
    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14"><a href="#home" class="font-semibold text-lg tracking-tight" style="color:#4338ca;"> <span style="color:#6366f1;">⬡</span> E-Portfolio </a>
-    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:#475569;" id="desktopNav"><a href="#home" class="hover:text-indigo-600 transition">Home</a> <a href="#about" class="hover:text-indigo-600 transition">About</a> <a href="#modul" class="hover:text-indigo-600 transition">Modul Ajar</a> <a href="#media" class="hover:text-indigo-600 transition">Media</a> <a href="#video" class="hover:text-indigo-600 transition">Video</a> <a href="#hasil" class="hover:text-indigo-600 transition">Hasil Kerja</a> <a href="#refleksi" class="hover:text-indigo-600 transition">Refleksi</a> <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
+    <div class="hidden md:flex items-center gap-6 text-sm font-medium" style="color:#475569;" id="desktopNav"><a href="#home" class="hover:text-indigo-600 transition">Home</a> <a href="#about" class="hover:text-indigo-600 transition">About</a> <a href="#modul" class="hover:text-indigo-600 transition">Modul Ajar</a> <a href="#media" class="hover:text-indigo-600 transition">Media</a> <a href="#video" class="hover:text-indigo-600 transition">Dokumentasi</a> <a href="#hasil" class="hover:text-indigo-600 transition">Penilaian</a> <a href="#refleksi" class="hover:text-indigo-600 transition">Instrumen</a> <a href="#contact" class="hover:text-indigo-600 transition">Contact</a>
     </div><button id="menuBtn" class="md:hidden p-2 rounded-lg" style="color:#4338ca;" aria-label="Menu"> <i data-lucide="menu" style="inline-size:22px;block-size:22px;"></i> </button>
    </div>
   </nav><!-- MOBILE MENU -->
-  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 z-[60] h-full w-64 shadow-2xl p-6 flex flex-col gap-4" style="background:#fafbff;"><button id="closeMenu" class="self-end p-2" aria-label="Close"><i data-lucide="x" style="inline-size:22px;block-size:22px;color:#4338ca;"></i></button> <a href="#home" class="mob-link text-base font-medium py-2" style="color:#334155;">Home</a> <a href="#about" class="mob-link text-base font-medium py-2" style="color:#334155;">About</a> <a href="#modul" class="mob-link text-base font-medium py-2" style="color:#334155;">Modul Ajar</a> <a href="#media" class="mob-link text-base font-medium py-2" style="color:#334155;">Media</a> <a href="#video" class="mob-link text-base font-medium py-2" style="color:#334155;">Video</a> <a href="#hasil" class="mob-link text-base font-medium py-2" style="color:#334155;">Hasil Kerja</a> <a href="#refleksi" class="mob-link text-base font-medium py-2" style="color:#334155;">Refleksi</a> <a href="#contact" class="mob-link text-base font-medium py-2" style="color:#334155;">Contact</a>
+  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 z-[60] h-full w-64 shadow-2xl p-6 flex flex-col gap-4" style="background:#fafbff;"><button id="closeMenu" class="self-end p-2" aria-label="Close"><i data-lucide="x" style="inline-size:22px;block-size:22px;color:#4338ca;"></i></button> <a href="#home" class="mob-link text-base font-medium py-2" style="color:#334155;">Home</a> <a href="#about" class="mob-link text-base font-medium py-2" style="color:#334155;">About</a> <a href="#modul" class="mob-link text-base font-medium py-2" style="color:#334155;">Modul Ajar</a> <a href="#media" class="mob-link text-base font-medium py-2" style="color:#334155;">Media</a> <a href="#video" class="mob-link text-base font-medium py-2" style="color:#334155;">Dokumentasi</a> <a href="#hasil" class="mob-link text-base font-medium py-2" style="color:#334155;">Penilaian</a> <a href="#refleksi" class="mob-link text-base font-medium py-2" style="color:#334155;">Instrumen</a> <a href="#contact" class="mob-link text-base font-medium py-2" style="color:#334155;">Contact</a>
   </div>
   <main class="w-full"><!-- HOME -->
    <section id="home" class="relative min-h-[90%] flex items-center overflow-hidden pt-14">
@@ -132,7 +132,7 @@ body { font-family: 'Outfit', sans-serif; }
      </div>
      <div class="grid sm:grid-cols-2 gap-6" id="videoGrid"></div>
     </div>
-   </section><!-- HASIL KERJA SISWA -->
+   </section><!-- Penilaian -->
    <section id="hasil" class="py-20 fade-up">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
      <div class="text-center mb-12">
@@ -256,7 +256,7 @@ document.getElementById('instrumenList').innerHTML = instrumenData.map(r => `
   <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
     <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
     <p class="text-sm" style="color:#475569;">${r.desc}</p>
-    <a href="${item.file}" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
+    <a href="#" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
       Baca Selengkapnya <i data-lucide="arrow-right" style="inline-size:14px;block-size:14px;"></i>
     </a>
   </div>`).join('');
@@ -264,7 +264,7 @@ document.getElementById('refleksiList').innerHTML = refleksiData.map(r => `
   <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
     <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
     <p class="text-sm" style="color:#475569;">${r.desc}</p>
-    <a href="${item.file}" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
+    <a href="#" target="_blank" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
       Baca Selengkapnya <i data-lucide="arrow-right" style="inline-size:14px;block-size:14px;"></i>
     </a>
   </div>`).join('');
