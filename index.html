@@ -263,28 +263,18 @@ body { font-family: 'Outfit', sans-serif; }
      <div class="max-w-3xl mx-auto flex flex-col gap-6" id="instrumenList"></div>
     </div>
    </section><!-- REFLEKSI -->
-   <section id="refleksi" class="py-20 fade-up" style="background:#f0f0ff;">
+   <section id="portfolio2" class="py-20 fade-up" style="background:linear-gradient(180deg,#f5f3ff 0%, #ffffff 100%);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
      <div class="text-center mb-12">
       <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Insturmen Penilaian Praktik Mengajar</p>
       <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Praktik Mengajar</h2>
       <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
      </div>
-     <div class="max-w-3xl mx-auto flex flex-col gap-6" id="refleksiList"></div>
-    </div>
-   </section><!-- PORTFOLIO 2 INTEGRATED -->
-   <section id="portfolio2" class="py-20 fade-up" style="background:linear-gradient(180deg,#f5f3ff 0%, #ffffff 100%);">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-     <div class="text-center mb-12">
-      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Portfolio Lanjutan</p>
-      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Akhir PPL Terbimbing</h2>
-      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
-     </div>
 
      <div class="grid lg:grid-cols-2 gap-8 items-start">
       <div class="rounded-[2rem] p-7 shadow-lg" style="background:#fff;border:1px solid #e0e7ff;">
        <p class="text-xs font-semibold uppercase tracking-[0.25em]" style="color:#6366f1;">Refleksi Akhir</p>
-       <h3 class="mt-3 text-3xl font-bold" style="color:#1e1b4b;">E-Portfolio 2</h3>
+       <h3 class="mt-3 text-3xl font-bold" style="color:#1e1b4b;">Refleksi PPLT</h3>
        <p class="mt-4 text-base leading-8" style="color:#475569;">Portfolio ini memuat refleksi akhir praktik pengalaman lapangan terbimbing, filosofi mengajar, serta dokumen pendukung yang menunjukkan perjalanan pembelajaran saya dari observasi, asistensi, hingga siklus refleksi dan penilaian.</p>
        <div class="mt-6 grid sm:grid-cols-2 gap-4">
         <div class="rounded-2xl p-4" style="background:#eef2ff;">
@@ -317,7 +307,7 @@ body { font-family: 'Outfit', sans-serif; }
        </div>
        <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
         <h3 class="text-xl font-semibold" style="color:#1e1b4b;">Arah E-Portfolio</h3>
-        <p class="mt-3 text-sm leading-7" style="color:#475569;">E-Portfolio 2 menekankan refleksi akhir praktik mengajar dan penguatan filosofi pembelajaran. Semua bukti yang tampil merupakan kelanjutan dari proses yang telah dijalani secara konsisten.</p>
+        <p class="mt-3 text-sm leading-7" style="color:#475569;">E-Portfolio menekankan refleksi akhir praktik mengajar dan penguatan filosofi pembelajaran. Semua bukti yang tampil merupakan kelanjutan dari proses yang telah dijalani secara konsisten.</p>
        </div>
       </div>
      </div>
@@ -464,9 +454,7 @@ const instrumenData = [
   { title: "Siklus Terbimbing 2", desc: "Pengembangan modul ajar dan praktik mengajar terbimbing.", file: "SiklusTerbimbing/Siklus2.pdf" },
   { title: "Siklus Terbimbing 3", desc: "Evaluasi keseluruhan perjalanan PPG dan rencana ke depan.", file: "SiklusTerbimbing/Siklus3.pdf" },
 ];
-const refleksiData = [
-  { title: "Refleksi Praktik Pengalaman Lapangan Terbimbing (PPLT)", desc: "SMK Negeri 2 Depok, Yogyakarta", file: "https://ibnuallikapw.github.io/E-Portofolio2/"},
-];
+
 
 function makeCard(item, type) {
   const linkText = type === 'video' ? 'Lihat Gambar Dokumentasi' : type === 'modul' ? 'Lihat Dokumen' : 'Lihat Detail';
@@ -498,14 +486,6 @@ document.getElementById('instrumenList').innerHTML = instrumenData.map(r => `
     </a>
   </div>`).join('');
 
-document.getElementById('refleksiList').innerHTML = refleksiData.map(r => `
-  <div class="rounded-2xl p-6 card-hover" style="background:#fff;border:1px solid #e0e7ff;">
-    <h3 class="text-base font-semibold mb-2" style="color:#1e1b4b;">${r.title}</h3>
-    <p class="text-sm" style="color:#475569;">${r.desc}</p>
-    <a href="${r.file}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-xs font-semibold mt-3 transition hover:gap-2" style="color:#6366f1;">
-      Baca Selengkapnya <i data-lucide="arrow-right" style="inline-size:14px;block-size:14px;"></i>
-    </a>
-  </div>`).join('');
 
 function initSectionAccordions() {
   const sectionIds = ['about', 'modul', 'media', 'video', 'hasil', 'instrumen', 'refleksi', 'portfolio2', 'semester-refleksi', 'contact'];
