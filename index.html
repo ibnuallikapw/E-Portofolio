@@ -625,20 +625,28 @@ function renderSemesterTabs() {
   const routeButtons = tabs.querySelectorAll('.tab-button');
   const routePages = panels.querySelectorAll('.route-page');
 
-  function setRoute(targetId) {
+  function setRoute(targetId, updateUrl = true) {
     routeButtons.forEach(btn => btn.classList.toggle('active', btn.dataset.target === targetId));
     routePages.forEach(page => page.classList.toggle('active', page.id === targetId));
-    history.pushState(null, '', `#${targetId}`);
-    window.scrollTo({ top: document.getElementById('semester-refleksi').offsetTop - 80, behavior: 'smooth' });
+
+    if (updateUrl) {
+      history.pushState(null, '', `#${targetId}`);
+      window.scrollTo({ top: document.getElementById('semester-refleksi').offsetTop - 80, behavior: 'smooth' });
+    }
   }
 
   routeButtons.forEach(button => {
-    button.addEventListener('click', () => setRoute(button.dataset.target));
+    button.addEventListener('click', () => setRoute(button.dataset.target, true));
   });
 
   const initialHash = window.location.hash.replace('#', '');
-  const defaultPage = semesterData.some(item => item.id === initialHash) ? initialHash : semesterData[0].id;
-  setRoute(defaultPage);
+  const validHash = semesterData.some(item => item.id === initialHash);
+
+  if (validHash) {
+    setRoute(initialHash, true);
+  } else {
+    setRoute(semesterData[0].id, false);
+  }
 
   lucide.createIcons();
 }
