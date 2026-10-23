@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^node -e 'const fs=require\\(\"fs\"\\);const html=fs\\.readFileSync\\(\"index\\.html\",\"utf8\"\\);for\\(const match of html\\.matchAll\\(/<script\\\\b\\(\\?!\\[\\^>\\]\\*\\\\bsrc=\\)\\[\\^>\\]\\*>\\(\\[\\\\s\\\\S\\]\\*\\?\\)<\\\\/script>/gi\\)\\)\\{new Function\\(match\\[1\\]\\);\\}console\\.log\\(\"Inline JavaScript syntax: OK\"\\)' && git --no-pager diff --check$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

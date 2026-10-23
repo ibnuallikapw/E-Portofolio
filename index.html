@@ -374,18 +374,44 @@ body { font-family: 'Outfit', sans-serif; }
       </div>
      </div>
     </div>
-   </section><!-- REFLEKSI SEMESTER SEBELUMNYA -->
-   <section id="semester-refleksi" class="py-20 fade-up" style="background:linear-gradient(180deg,#fcfcff 0%, #f5f3ff 100%);">
+   </section><!-- REFLEKSI MATA KULIAH SEMESTER 1 -->
+   <section id="semester-refleksi-1" class="py-20 fade-up" style="background:linear-gradient(180deg,#fcfcff 0%, #f5f3ff 100%);">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
      <div class="text-center mb-12">
       <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Semester 1 Terbimbing</p>
-      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Mata Kuliah</h2>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Mata Kuliah Semester 1</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="rounded-[2rem] p-4 sm:p-6" style="background:#fff;border:1px solid #e0e7ff; box-shadow:0 18px 40px rgba(15,23,42,0.05);">
+      <div class="route-nav" id="semester1Tabs"></div>
+      <div id="semester1Panels"></div>
+     </div>
+    </div>
+    </section><!-- REFLEKSI MATA KULIAH SEMESTER 2 -->
+   <section id="semester-refleksi-2" class="py-20 fade-up" style="background:linear-gradient(180deg,#fcfcff 0%, #f5f3ff 100%);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Semester 2 Mandiri</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi Mata Kuliah Semester 2</h2>
+      <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+     </div>
+     <div class="rounded-[2rem] p-4 sm:p-6" style="background:#fff;border:1px solid #e0e7ff; box-shadow:0 18px 40px rgba(15,23,42,0.05);">
+      <div class="route-nav" id="semester2Tabs"></div>
+      <div id="semester2Panels"></div>
+     </div>
+    </div>
+    </section><!-- REFLEKSI PPL MANDIRI -->
+   <section id="refleksi-ppl-mandiri" class="py-20 fade-up" style="background:linear-gradient(180deg,#fcfcff 0%, #f5f3ff 100%);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+     <div class="text-center mb-12">
+      <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">PPL Mandiri</p>
+      <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Refleksi PPL Mandiri</h2>
       <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
      </div>
 
      <div class="rounded-[2rem] p-4 sm:p-6" style="background:#fff;border:1px solid #e0e7ff; box-shadow:0 18px 40px rgba(15,23,42,0.05);">
-      <div class="route-nav" id="semesterTabs"></div>
-      <div id="semesterPanels"></div>
+      <div class="route-nav" id="pplMandiriTabs"></div>
+      <div id="pplMandiriPanels"></div>
      </div>
     </div>
    </section><!-- CONTACT -->
@@ -488,7 +514,7 @@ document.getElementById('instrumenList').innerHTML = instrumenData.map(r => `
 
 
 function initSectionAccordions() {
-  const sectionIds = ['about', 'modul', 'media', 'video', 'hasil', 'instrumen', 'refleksi', 'portfolio2', 'semester-refleksi', 'contact'];
+  const sectionIds = ['about', 'modul', 'media', 'video', 'hasil', 'instrumen', 'refleksi', 'portfolio2', 'semester-refleksi-1', 'semester-refleksi-2', 'refleksi-ppl-mandiri', 'contact'];
 
   sectionIds.forEach(id => {
     const section = document.getElementById(id);
@@ -583,18 +609,96 @@ const semesterData = [
   }
 ];
 
-function renderSemesterTabs() {
-  const tabs = document.getElementById('semesterTabs');
-  const panels = document.getElementById('semesterPanels');
+const semester2Data = [
+  {
+    id: 'PembelajaranMendalamAsesmenLanjut',
+    title: 'Pembelajaran Mendalam & Asesmen Lanjut',
+    intro: 'Ringkasan refleksi untuk mata kuliah Semester 2. Ganti judul dan isi bagian ini sesuai mata kuliah yang diikuti.',
+    items: [
+      { title: 'Refleksi Matakuliah', desc: 'Tambahkan refleksi hasil belajar, pengalaman perkuliahan, dan hal penting yang diperoleh.', file:'#', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Tuliskan evaluasi diri, kompetensi yang perlu dikembangkan, dan rencana tindak lanjut.' }
+    ]
+  },
+  {
+    id: 'SosialEmosional',
+    title: 'Pembelajaran Sosial Emosional',
+    intro: 'Ringkasan refleksi untuk mata kuliah Semester 2. Ganti judul dan isi bagian ini sesuai mata kuliah yang diikuti.',
+    items: [
+      { title: 'Refleksi Matakuliah', desc: 'Tambahkan refleksi hasil belajar, pengalaman perkuliahan, dan hal penting yang diperoleh.', file:'#', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Tuliskan evaluasi diri, kompetensi yang perlu dikembangkan, dan rencana tindak lanjut.' }
+    ]
+  },
+  {
+    id: 'KeprofesianBerkelanjutan',
+    title: 'Pengembangan Keprofesian Berkelanjutan',
+    intro: 'Ringkasan refleksi untuk mata kuliah Semester 2. Ganti judul dan isi bagian ini sesuai mata kuliah yang diikuti.',
+    items: [
+      { title: 'Refleksi Matakuliah', desc: 'Tambahkan refleksi hasil belajar, pengalaman perkuliahan, dan hal penting yang diperoleh.', file:'#', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Tuliskan evaluasi diri, kompetensi yang perlu dikembangkan, dan rencana tindak lanjut.' }
+    ]
+  },
+  {
+    id: 'ProyekKepemimpinan',
+    title: 'Proyek Kepemimpinan & Manajemen Sekolah',
+    intro: 'Ringkasan refleksi untuk mata kuliah Semester 2. Ganti judul dan isi bagian ini sesuai mata kuliah yang diikuti.',
+    items: [
+      { title: 'Refleksi Matakuliah', desc: 'Tambahkan refleksi hasil belajar, pengalaman perkuliahan, dan hal penting yang diperoleh.', file:'#', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Tuliskan evaluasi diri, kompetensi yang perlu dikembangkan, dan rencana tindak lanjut.' }
+    ]
+  }
+];
+
+const PPLMandiri = [
+  {
+    id: 'SiklusMandiri1',
+    title: 'Siklus PPL Mandiri 1',
+    intro: 'Refleksi pelaksanaan pembelajaran materi IPO, Software, Hardware, Sistem Operasi melalui model Case-Based Learning (CBL) dengan fokus pada analisis permasalahan sistem komputer dan evaluasi informasi digital. Refleksi ini mencakup keberhasilan pembelajaran, kendala sarana dan kemampuan awal murid, serta pemanfaatan media digital melalui website DCI (Digital Case Investigation).',
+    items: [
+      { title: 'Refleksi Pelaksanaan', desc: 'Catatan refleksi pembelajaran, respons peserta didik, dan pengalaman selama Siklus 1.', file:'Refleksi%20PPL%20Mandiri/LK4-1%20Refleksi%20Praktek%20Mengajar%20Mandiri%20PPLM.pdf', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Saya menyadari perlunya meningkatkan pengelolaan waktu, pemerataan partisipasi murid, serta penerapan TaRL dan CRT agar pembelajaran lebih adaptif, kontekstual, dan bermakna. Ke depannya, saya akan menyempurnakan media pembelajaran, pendampingan sesuai kebutuhan murid, dan asesmen formatif untuk meningkatkan kualitas pembelajaran secara berkelanjutan.' }
+    ]
+  },
+  {
+    id: 'SiklusMandiri2',
+    title: 'Siklus PPL Mandiri 2',
+    intro: 'Refleksi pembelajaran Informatika tentang konsep dasar Kecerdasan Artifisial (AI) melalui model Case-Based Learning (CBL), dengan studi kasus bias gender dalam proses rekrutmen berbasis AI. Kegiatan mencakup analisis informasi, evaluasi bukti, prompt engineering, presentasi, dan asesmen untuk mendorong kemampuan berpikir kritis serta penggunaan AI secara bertanggung jawab.',
+    items: [
+      { title: 'Refleksi Pelaksanaan', desc: 'Catatan refleksi pembelajaran, respons peserta didik, dan pengalaman selama Siklus 2.', file:'Refleksi%20PPL%20Mandiri/LK4-2%20Refleksi%20Praktek%20Mengajar%20Mandiri%20PPLM.pdf', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Saya menyadari perlunya meningkatkan pengelolaan waktu, pemerataan partisipasi, dan pendampingan sesuai kemampuan awal murid. Ke depannya, saya akan memperkuat penerapan TaRL dan CRT, mengoptimalkan pemanfaatan teknologi, serta mengaitkan materi dengan pengalaman nyata murid agar pembelajaran lebih adaptif, kontekstual, dan bermakna.' }
+    ]
+  },
+  {
+    id: 'SiklusMandiri3',
+    title: 'Siklus PPL Mandiri 3',
+    intro: 'Refleksi pembelajaran Informatika mengenai mesin pencari dan evaluasi sumber informasi melalui model Case-Based Learning (CBL). Murid melakukan investigasi terhadap informasi tentang pengaruh AI terhadap masa depan pekerjaan, menggunakan kata kunci dan operator pencarian, menganalisis kredibilitas sumber dengan metode 5C, serta menyusun kesimpulan berdasarkan bukti.',
+    items: [
+      { title: 'Refleksi Pelaksanaan', desc: 'Catatan refleksi pembelajaran, respons peserta didik, dan pengalaman selama Siklus 3.', file:'Refleksi%20PPL%20Mandiri/LK4-3%20Refleksi%20Praktek%20Mengajar%20Mandiri%20PPLM.pdf', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Saya menyadari perlunya meningkatkan kemampuan murid dalam menggunakan operator pencarian dan menganalisis kredibilitas sumber secara mendalam. Ke depannya, saya akan memperkuat penerapan TaRL dan CRT, memberikan pendampingan yang lebih terarah, serta mengoptimalkan diskusi kelompok agar murid mampu mencari, memverifikasi, membandingkan, dan menggunakan informasi secara kritis dan bertanggung jawab.' }
+    ]
+  },
+  {
+    id: 'SiklusMandiri4',
+    title: 'Siklus PPL Mandiri 4',
+    intro: 'Refleksi pembelajaran Informatika tentang pemanfaatan aplikasi produktivitas berbasis AI untuk menghasilkan infografis dan presentasi digital melalui model Case-Based Learning (CBL). Murid mengidentifikasi permasalahan kontekstual di lingkungan workshop TFLM, menyusun prompt, memverifikasi informasi, serta mengembangkan konten digital yang sesuai dengan kebutuhan audiens.',
+    items: [
+      { title: 'Refleksi Pelaksanaan', desc: 'Catatan refleksi pembelajaran, respons peserta didik, dan pengalaman selama Siklus 4.', file:'Refleksi%20PPL%20Mandiri/LK4-4%20Refleksi%20Praktek%20Mengajar%20Mandiri%20PPLM.pdf', showPdf: true },
+      { title: 'Evaluasi Diri', desc: 'Saya menyadari perlunya meningkatkan kemampuan murid dalam mengevaluasi keluaran AI, menyusun konten yang efektif, dan memverifikasi informasi menggunakan sumber tepercaya. Ke depannya, saya akan memperkuat penerapan TaRL dan CRT, memberikan pendampingan dalam prompt engineering, serta meningkatkan evaluasi produk agar pembelajaran menghasilkan karya digital yang benar, jelas, menarik, dan bertanggung jawab.' }
+    ]
+  }
+];
+
+function renderReflectionTabs({ data, tabsId, panelsId, sectionId }) {
+  const tabs = document.getElementById(tabsId);
+  const panels = document.getElementById(panelsId);
   if (!tabs || !panels) return;
 
-  tabs.innerHTML = semesterData.map((item, index) => `
+  tabs.innerHTML = data.map((item, index) => `
     <button class="tab-button ${index === 0 ? 'active' : ''}" data-target="${item.id}">
       ${item.title}
     </button>
   `).join('');
 
-  panels.innerHTML = semesterData.map((item, index) => `
+  panels.innerHTML = data.map((item, index) => `
     <div id="${item.id}" class="route-page ${index === 0 ? 'active' : ''}">
       <div class="rounded-2xl p-5 mb-5" style="background:#f8fafc;border:1px solid #e2e8f0;">
         <p class="text-sm font-medium" style="color:#6366f1;">Ringkasan Refleksi</p>
@@ -610,8 +714,8 @@ function renderSemesterTabs() {
               </div>
               <h3 class="text-base font-semibold" style="color:#1e1b4b;">${entry.title}</h3>
               <p class="mt-2 text-sm leading-6" style="color:#475569;">${entry.desc}</p>
-              ${entry.file ? `
-                <a href="${entry.file}" target="_blank" rel="noopener" class="inline-flex items-center gap-1 mt-4 text-xs font-semibold" style="color:#6366f1;">
+              ${entry.file && entry.file !== '#' || entry.showPdf ? `
+                <a href="${entry.file && entry.file !== '#' ? entry.file : '#'}" ${entry.file && entry.file !== '#' ? 'target="_blank" rel="noopener"' : 'data-placeholder-pdf="true"'} class="inline-flex items-center gap-1 mt-4 text-xs font-semibold" style="color:#6366f1;">
                   Buka PDF <i data-lucide="arrow-right" style="inline-size:14px;block-size:14px;"></i>
                 </a>
               ` : ''}
@@ -622,6 +726,10 @@ function renderSemesterTabs() {
     </div>
   `).join('');
 
+  panels.querySelectorAll('[data-placeholder-pdf]').forEach(link => {
+    link.addEventListener('click', event => event.preventDefault());
+  });
+
   const routeButtons = tabs.querySelectorAll('.tab-button');
   const routePages = panels.querySelectorAll('.route-page');
 
@@ -631,7 +739,7 @@ function renderSemesterTabs() {
 
     if (updateUrl) {
       history.pushState(null, '', `#${targetId}`);
-      window.scrollTo({ top: document.getElementById('semester-refleksi').offsetTop - 80, behavior: 'smooth' });
+      window.scrollTo({ top: document.getElementById(sectionId).offsetTop - 80, behavior: 'smooth' });
     }
   }
 
@@ -640,18 +748,35 @@ function renderSemesterTabs() {
   });
 
   const initialHash = window.location.hash.replace('#', '');
-  const validHash = semesterData.some(item => item.id === initialHash);
+  const validHash = data.some(item => item.id === initialHash);
 
   if (validHash) {
     setRoute(initialHash, true);
   } else {
-    setRoute(semesterData[0].id, false);
+    setRoute(data[0].id, false);
   }
 
   lucide.createIcons();
 }
 
-renderSemesterTabs();
+renderReflectionTabs({
+  data: semesterData,
+  tabsId: 'semester1Tabs',
+  panelsId: 'semester1Panels',
+  sectionId: 'semester-refleksi-1'
+});
+renderReflectionTabs({
+  data: semester2Data,
+  tabsId: 'semester2Tabs',
+  panelsId: 'semester2Panels',
+  sectionId: 'semester-refleksi-2'
+});
+renderReflectionTabs({
+  data: PPLMandiri,
+  tabsId: 'pplMandiriTabs',
+  panelsId: 'pplMandiriPanels',
+  sectionId: 'refleksi-ppl-mandiri'
+});
 
 // Mobile menu
 const menuBtn = document.getElementById('menuBtn');
