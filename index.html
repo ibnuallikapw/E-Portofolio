@@ -62,65 +62,72 @@ body { font-family: 'Outfit', sans-serif; }
 .route-page { display: none; }
 .route-page.active { display: block; }
 
-/* Section accordions: the section title controls the whole section content */
-.section-accordion {
-  position:relative;
+.section-catalog-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));
+  gap:1.25rem;
 }
-.section-toggle {
-  width:100%;
+.section-card {
+  min-height:12rem;
   display:flex;
   flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  position:relative;
-  padding:0.25rem 3.5rem 0.25rem 3.5rem;
-  margin:0;
-  border:0;
-  background:transparent;
+  align-items:flex-start;
+  padding:1.5rem;
+  border:1px solid #e0e7ff;
+  border-radius:1.25rem;
+  background:#fff;
+  box-shadow:0 8px 24px rgba(30,27,75,0.04);
+  color:#1e1b4b;
   cursor:pointer;
-  text-align:center;
+  text-align:left;
+  transition:transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
-.section-toggle .section-chevron {
-  position:absolute;
-  right:0;
-  top:50%;
-  transform:translateY(-50%);
-  width:2.75rem;
-  height:2.75rem;
-  border-radius:9999px;
+.section-card:hover, .section-card:focus-visible {
+  transform:translateY(-4px);
+  border-color:#a5b4fc;
+  box-shadow:0 18px 35px rgba(67,56,202,0.12);
+}
+.section-card:focus-visible { outline:3px solid #a5b4fc; outline-offset:3px; }
+.section-dialog {
+  width:min( min(100% - 2rem, 64rem), 100%);
+  max-width:64rem;
+  max-height:min(90vh, 60rem);
+  padding:0;
+  border:1px solid #e0e7ff;
+  border-radius:1.5rem;
+  background:#fff;
+  color:#1e1b4b;
+  box-shadow:0 25px 80px rgba(15,23,42,0.25);
+}
+.section-dialog::backdrop { background:rgba(15,23,42,0.62); backdrop-filter:blur(4px); }
+.section-dialog-header {
+  position:sticky;
+  top:0;
+  z-index:1;
   display:flex;
-  align-items:center;
-  justify-content:center;
+  align-items:flex-start;
+  justify-content:space-between;
+  gap:1rem;
+  padding:1.5rem;
+  border-bottom:1px solid #e0e7ff;
+  background:rgba(255,255,255,0.96);
+}
+.section-dialog-content { padding:1.5rem; }
+.section-dialog-close {
+  flex:none;
+  display:grid;
+  place-items:center;
+  width:2.5rem;
+  height:2.5rem;
+  border:0;
+  border-radius:9999px;
   background:#eef2ff;
   color:#4338ca;
-  transition:transform 0.25s ease, background 0.25s ease;
-}
-.section-accordion.open .section-toggle .section-chevron {
-  transform:translateY(-50%) rotate(180deg);
-  background:#e0e7ff;
-}
-.section-panel {
-  display:grid;
-  grid-template-rows:0fr;
-  transition:grid-template-rows 0.3s ease;
-}
-.section-panel-inner {
-  min-height:0;
-  overflow:hidden;
-}
-.section-accordion.open .section-panel {
-  grid-template-rows:1fr;
-}
-.section-panel-content {
-  padding-top:3rem;
-}
-.section-accordion.open .section-panel-content {
-  padding-top:3rem;
+  cursor:pointer;
 }
 @media (max-width:640px) {
-  .section-toggle { padding-inline:2.75rem; }
-  .section-toggle .section-chevron { right:0.25rem; width:2.4rem; height:2.4rem; }
-  .section-panel-content { padding-top:2rem; }
+  .section-dialog { max-height:94vh; border-radius:1.1rem; }
+  .section-dialog-header, .section-dialog-content { padding:1rem; }
 }
 .semester-card {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
@@ -460,6 +467,10 @@ const modulData = [
   { title: "Modul 1: Perkakas Teknologi Digital", desc: "Macam Macam Alat Digital", icon: "code-2", file: "ModulAjar/ModulAjarPerkakasTeknologiDigital.pdf" },
   { title: "Modul 2: Pengelolaan Kata", desc: "Pengelolaan dan penggunaan Google Document", icon: "database", file: "ModulAjar/ModulAjarGoogleDocuments.pdf" },
   { title: "Modul 3: Pengelolaan Data", desc: "Utilisasi dari penggunaan Spreadsheet", icon: "wifi", file: "ModulAjar/ModulAjarMengolahData.pdf" },
+  { title: "Modul 4: IPO, Hardware, Software & Sistem Operasi", desc: "Memahami konsep IPO, perangkat keras, perangkat lunak, dan sistem operasi melalui Case-Based Learning.", icon: "cpu", file: "ModulAjar/ModulAjarRPM_CBL_IPO_Hardware_Sofware_SO.pdf" },
+  { title: "Modul 5: Konsep Dasar Kecerdasan Artifisial", desc: "Mengenal konsep dasar kecerdasan artifisial melalui kegiatan pembelajaran berbasis kasus.", icon: "brain", file: "ModulAjar/ModulAjarRPM_KonsepDasarAI.pdf" },
+  { title: "Modul 6: Mesin Pencari", desc: "Menggunakan mesin pencari dan mengevaluasi informasi digital secara kritis.", icon: "search-check", file: "ModulAjar/ModulAjarRPM_MesinPencari%20Audit.pdf" },
+  { title: "Modul 7: Aplikasi Produktivitas Berbasis AI", desc: "Memanfaatkan aplikasi produktivitas berbasis AI untuk menghasilkan konten digital.", icon: "sparkles", file: "ModulAjar/ModulAjarRPM_CBL-AplikasiProduktivitasberbasisAI.pdf" },
 ];
 const mediaData = [
   { title: "Materi Singkat", desc: "Presentasi berbasis gamifikasi", icon: "presentation", file: "https://perkakasteknologidigital.my.canva.site/" },
@@ -513,53 +524,78 @@ document.getElementById('instrumenList').innerHTML = instrumenData.map(r => `
   </div>`).join('');
 
 
-function initSectionAccordions() {
+function initSectionCards() {
   const sectionIds = ['about', 'modul', 'media', 'video', 'hasil', 'instrumen', 'refleksi', 'portfolio2', 'semester-refleksi-1', 'semester-refleksi-2', 'refleksi-ppl-mandiri', 'contact'];
+  const catalog = document.createElement('section');
+  catalog.id = 'section-catalog';
+  catalog.className = 'py-16 sm:py-20 fade-up';
+  catalog.innerHTML = `
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <p class="text-sm font-semibold tracking-widest uppercase" style="color:#6366f1;">Jelajahi Portfolio</p>
+        <h2 class="text-3xl sm:text-4xl font-bold mt-2" style="color:#1e1b4b;">Pilih Bagian</h2>
+        <div class="section-divider mx-auto mt-4" style="background:#6366f1;"></div>
+      </div>
+      <div class="section-catalog-grid"></div>
+    </div>`;
+  const grid = catalog.querySelector('.section-catalog-grid');
+  document.getElementById('home').after(catalog);
 
   sectionIds.forEach(id => {
     const section = document.getElementById(id);
     if (!section) return;
 
-    section.classList.add('section-accordion');
     const container = section.querySelector(':scope > div');
     const header = container?.querySelector(':scope > .text-center');
-    if (!container || !header || header.dataset.accordionReady === 'true') return;
+    const title = header?.querySelector('h2')?.textContent?.trim();
+    if (!container || !header || !title) return;
 
-    header.dataset.accordionReady = 'true';
-    const headerContent = header.innerHTML;
-    const toggle = document.createElement('button');
-    toggle.type = 'button';
-    toggle.className = 'section-toggle';
-    toggle.setAttribute('aria-expanded', 'false');
-    toggle.innerHTML = `${headerContent}<span class="section-chevron"><i data-lucide="chevron-down" style="inline-size:22px;block-size:22px;"></i></span>`;
+    const description = Array.from(container.querySelectorAll('p'))
+      .find(paragraph => !header.contains(paragraph))?.textContent?.trim();
+    const card = document.createElement('button');
+    card.type = 'button';
+    card.id = id;
+    card.className = 'section-card';
+    card.setAttribute('aria-haspopup', 'dialog');
+    card.innerHTML = `
+      <span class="text-xs font-semibold uppercase tracking-[0.2em]" style="color:#6366f1;">${header.querySelector('p')?.textContent?.trim() || 'E-Portfolio'}</span>
+      <span class="mt-3 text-xl font-bold">${title}</span>
+      <span class="mt-2 text-sm leading-6 line-clamp-3" style="color:#64748b;">${description || 'Buka bagian ini untuk melihat refleksi, dokumen, dan informasi selengkapnya.'}</span>
+      <span class="mt-auto pt-5 inline-flex items-center gap-2 text-sm font-semibold" style="color:#4338ca;">Buka bagian <i data-lucide="arrow-up-right" style="inline-size:16px;block-size:16px;"></i></span>`;
 
-    const panel = document.createElement('div');
-    panel.className = 'section-panel';
-    const panelInner = document.createElement('div');
-    panelInner.className = 'section-panel-inner';
-    const panelContent = document.createElement('div');
-    panelContent.className = 'section-panel-content';
-
+    const dialog = document.createElement('dialog');
+    dialog.className = 'section-dialog';
+    dialog.setAttribute('aria-label', title);
+    dialog.innerHTML = `
+      <div class="section-dialog-header">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em]" style="color:#6366f1;">E-Portfolio</p>
+          <h2 class="mt-2 text-2xl sm:text-3xl font-bold" style="color:#1e1b4b;">${title}</h2>
+        </div>
+        <button type="button" class="section-dialog-close" aria-label="Tutup">
+          <i data-lucide="x" style="inline-size:20px;block-size:20px;"></i>
+        </button>
+      </div>
+      <div class="section-dialog-content"></div>`;
+    const content = dialog.querySelector('.section-dialog-content');
     Array.from(container.children).forEach(child => {
-      if (child !== header) panelContent.appendChild(child);
+      if (child !== header) content.appendChild(child);
     });
 
-    panelInner.appendChild(panelContent);
-    panel.appendChild(panelInner);
-    header.replaceWith(toggle);
-    container.appendChild(panel);
-
-    toggle.addEventListener('click', () => {
-      const isOpen = section.classList.contains('open');
-      section.classList.toggle('open', !isOpen);
-      toggle.setAttribute('aria-expanded', String(!isOpen));
+    dialog.querySelector('.section-dialog-close').addEventListener('click', () => dialog.close());
+    dialog.addEventListener('click', event => {
+      if (event.target === dialog) dialog.close();
     });
+    card.addEventListener('click', () => dialog.showModal());
+    grid.appendChild(card);
+    document.body.appendChild(dialog);
+    section.remove();
   });
 
   lucide.createIcons();
 }
 
-initSectionAccordions();
+initSectionCards();
 
 const semesterData = [
   {
